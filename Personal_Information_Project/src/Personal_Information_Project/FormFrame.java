@@ -7,6 +7,14 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextPane;
+import javax.swing.JLabel;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.SwingConstants;
+import javax.swing.JButton;
 //hi hi 
 public class FormFrame extends JFrame {
 
@@ -36,11 +44,33 @@ public class FormFrame extends JFrame {
 		setBounds(100, 100, 467, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
-		JTextPane textPane = new JTextPane();
-		contentPane.add(textPane, BorderLayout.CENTER);
+		JLabel lblNewLabel = new JLabel("Personal Information Management System");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Georgia", Font.BOLD, 17));
+		lblNewLabel.setBackground(Color.WHITE);
+		lblNewLabel.setBounds(10, 0, 431, 52);
+		contentPane.add(lblNewLabel);
+		
+		JButton entry_button = new JButton("Enter Details");
+		entry_button.setFont(new Font("Tahoma", Font.BOLD, 11));
+		entry_button.setBounds(177, 91, 117, 23);
+		contentPane.add(entry_button);
+		entry_button.addActionListener(new ActionListener()
+				{
+					@Override
+					public void actionPerformed(ActionEvent e) 
+					{
+						Frame2 f2= new Frame2();
+						f2.NewScreen();
+					}
+				});
+		
+		JButton group_button = new JButton("Group");
+		group_button.setFont(new Font("Tahoma", Font.BOLD, 11));
+		group_button.setBounds(177, 146, 117, 23);
+		contentPane.add(group_button);
 	}
-
 }
