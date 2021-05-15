@@ -64,8 +64,8 @@ public class FormFrame extends JFrame {
 					@Override
 					public void actionPerformed(ActionEvent e) 
 					{
-						Frame2 f2= new Frame2();
-						f2.NewScreen();
+						FirstFrame f2= new FirstFrame();
+						f2.setVisible(true);
 					}
 				});
 		
