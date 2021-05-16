@@ -18,9 +18,9 @@ import java.awt.SystemColor;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+//hi frm sanjana
 public class FirstFrame extends JFrame {
-// comment
+
 	private JPanel contentPane;
 	private JTextField namefeild;
 	private JTextField dobfield;
