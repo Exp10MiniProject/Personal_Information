@@ -3,6 +3,9 @@ package Personal_Information_Project;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -79,7 +82,7 @@ public class FirstFrame extends JFrame {
 		gender.setBounds(10, 105, 116, 38);
 		contentPane.add(gender);
 		
-		JLabel phone = new JLabel("Phone no.");
+		JLabel phone = new JLabel("Phone Number");
 		phone.setFont(new Font("Arial", Font.BOLD, 15));
 		phone.setBounds(10, 136, 116, 38);
 		contentPane.add(phone);
@@ -197,8 +200,44 @@ public class FirstFrame extends JFrame {
 		contentPane.add(workfield);
 		
 		JButton ok1 = new JButton("OK");
-		ok1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		ok1.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				try 
+				{ 
+					Class.forName("com.mysql.jdbc.Driver");
+					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/personal_information?characterEncoding=latin1","root","your password"); 
+					PreparedStatement ps = conn.prepareStatement("insert into Details(name, dob, gender, ph_no, email, blood_grp, height, weight, profession, residing_area, work_place) values(?,?,?,?,?,?,?,?,?,?,?);");
+					ps.setString(1, namefeild.getText());
+ 					ps.setString(2, dobfield.getText());
+					ps.setString(3, genderfield.getText());
+ 					ps.setString(4, phonefield.getText());
+					ps.setString(5, emailfield.getText());
+					ps.setString(6, bloodfield.getText());
+					ps.setString(7, heightfield.getText());
+					ps.setString(8, weightfield.getText());
+					ps.setString(9, professionfield.getText());
+					ps.setString(10, residencefield.getText());
+					ps.setString(11, workfield.getText());
+
+
+					int x = ps.executeUpdate(); 
+					if(x>0) 
+					{ 
+						System.out.println("Registration Successful"); 
+					}
+					else 
+					{ 
+						System.out.println("Registration Failed"); 
+					} 
+				}
+				
+				catch(Exception e1) 
+				{ 
+					System.out.println(e1); 
+				} 
+
 			}
 		});
 		ok1.setFont(new Font("Times New Roman", Font.BOLD, 15));
