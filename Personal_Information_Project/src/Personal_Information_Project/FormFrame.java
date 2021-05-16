@@ -73,5 +73,14 @@ public class FormFrame extends JFrame {
 		group_button.setFont(new Font("Tahoma", Font.BOLD, 11));
 		group_button.setBounds(140, 146, 154, 23);
 		contentPane.add(group_button);
+		group_button.addActionListener(new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e) 
+			{
+				RetrieveDetailsFrame f3= new RetrieveDetailsFrame();
+				f3.setVisible(true);
+			}
+		});
 	}
 }
