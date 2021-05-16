@@ -57,7 +57,7 @@ public class FormFrame extends JFrame {
 		
 		JButton entry_button = new JButton("Enter Details");
 		entry_button.setFont(new Font("Tahoma", Font.BOLD, 11));
-		entry_button.setBounds(177, 91, 117, 23);
+		entry_button.setBounds(140, 91, 154, 23);
 		contentPane.add(entry_button);
 		entry_button.addActionListener(new ActionListener()
 				{
@@ -69,9 +69,9 @@ public class FormFrame extends JFrame {
 					}
 				});
 		
-		JButton group_button = new JButton("Group");
+		JButton group_button = new JButton("Retrieve Details");
 		group_button.setFont(new Font("Tahoma", Font.BOLD, 11));
-		group_button.setBounds(177, 146, 117, 23);
+		group_button.setBounds(140, 146, 154, 23);
 		contentPane.add(group_button);
 	}
 }
