@@ -2,7 +2,7 @@ package Personal_Information_Project;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
+//for rozz
 import net.proteanit.sql.DbUtils;
 import net.proteanit.sql.Dbutils;
 import javax.swing.JFrame;
