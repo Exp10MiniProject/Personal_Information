@@ -214,7 +214,7 @@ public class RetrieveDetailsFrame extends JFrame
 				try 
 				{ 
 					Class.forName("com.mysql.jdbc.Driver");
-					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/personal_information?characterEncoding=latin1","root","your password"); 
+					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/personal_information?characterEncoding=latin1","root","Sharanya47*;"); 
 					String sql="SELECT * FROM Details WHERE name=?";
 					PreparedStatement s= conn.prepareStatement(sql);
 					s.setString(1, R_enterName_textField.getText());
