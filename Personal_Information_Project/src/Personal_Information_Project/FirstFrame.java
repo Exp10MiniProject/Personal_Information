@@ -5,7 +5,6 @@ import java.awt.EventQueue;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -19,10 +18,9 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JFormattedTextField;
-//hi frm sanjana
-//hi
-public class FirstFrame extends JFrame {
 
+public class FirstFrame extends JFrame 
+{
 	private JPanel contentPane;
 	private JTextField namefeild;
 	private JTextField dobfield;
@@ -36,9 +34,6 @@ public class FirstFrame extends JFrame {
 	private JTextField residencefield;
 	private JTextField workfield;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -52,9 +47,6 @@ public class FirstFrame extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public FirstFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 616, 466);
@@ -210,7 +202,7 @@ public class FirstFrame extends JFrame {
 				try 
 				{ 
 					Class.forName("com.mysql.jdbc.Driver");
-					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/personal_information?characterEncoding=latin1","root","Sharanya47*;"); 
+					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/personal_information?characterEncoding=latin1","root","your password"); 
 					PreparedStatement ps = conn.prepareStatement("insert into Details(name, dob, gender, ph_no, email, blood_grp, height, weight, profession, residing_area, work_place) values(?,?,?,?,?,?,?,?,?,?,?);");
 					ps.setString(1, namefeild.getText());
  					ps.setString(2, dobfield.getText());
@@ -223,7 +215,6 @@ public class FirstFrame extends JFrame {
 					ps.setString(9, professionfield.getText());
 					ps.setString(10, residencefield.getText());
 					ps.setString(11, workfield.getText());
-
 
 					int x = ps.executeUpdate(); 
 					if(x>0) 
@@ -243,7 +234,6 @@ public class FirstFrame extends JFrame {
 				
 				DisplayDatabase da = new DisplayDatabase();
 				da.setVisible(true);
-
 			}
 		});
 		ok1.setFont(new Font("Times New Roman", Font.BOLD, 15));

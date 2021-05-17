@@ -1,8 +1,6 @@
 package Personal_Information_Project;
-//hi
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-//hi
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -15,15 +13,10 @@ import java.awt.event.ActionListener;
 
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
-//hi hi 
-//hi from SHaranya 
+
 public class FormFrame extends JFrame {
-// hi rose
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -37,9 +30,6 @@ public class FormFrame extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public FormFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 467, 300);
