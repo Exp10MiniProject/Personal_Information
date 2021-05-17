@@ -2,7 +2,9 @@ package Personal_Information_Project;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-//import net.proteanit.sql.Dbutils;
+
+import net.proteanit.sql.DbUtils;
+import net.proteanit.sql.Dbutils;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -12,9 +14,15 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import com.mysql.jdbc.ResultSet;
+
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.awt.event.ActionEvent;
 
 
@@ -44,7 +52,7 @@ public class DisplayDatabase extends JFrame {
 	 */
 	public DisplayDatabase () {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 678, 490);
+		setBounds(100, 100, 1006, 754);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -52,21 +60,19 @@ public class DisplayDatabase extends JFrame {
 		
 		JLabel db1 = new JLabel("Databases");
 		db1.setHorizontalAlignment(SwingConstants.CENTER);
-		db1.setFont(new Font("Lucida Sans", Font.BOLD | Font.ITALIC, 17));
-		db1.setBounds(71, 10, 414, 21);
+		db1.setFont(new Font("Lucida Sans", Font.BOLD | Font.ITALIC, 19));
+		db1.setBounds(10, 10, 953, 21);
 		contentPane.add(db1);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(39, 49, 556, 350);
+		scrollPane.setBounds(45, 49, 918, 599);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
-		table.setFont(new Font("Arial", Font.BOLD, 13));
+		table.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 11));
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null, null, null},
 			},
 			new String[] {
 				"Name", "Date of Birth", "Gender", "Phone Number", "E-Mail", "Blood Group", "Height", "Weight", "Profession", "Residence", "Work Place"
@@ -74,11 +80,33 @@ public class DisplayDatabase extends JFrame {
 		));
 		
 		JButton fetch = new JButton("Fetch data");
+		fetch.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 13));
 		fetch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try 
+				{ 
+					Class.forName("com.mysql.jdbc.Driver");
+					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/personal_information?characterEncoding=latin1","root","Sharanya47*;"); 
+					
+					String sql = "Select * from Details";
+					PreparedStatement s= conn.prepareStatement(sql);
+					ResultSet rs = (ResultSet) s.executeQuery();
+					table.setModel(DbUtils.resultSetToTableModel(rs));
+				
+				
+				
+				}catch(Exception e2) 
+				{ 
+					System.out.println(e2); 
+				} 
+				
+				
+				
+				
+				
 			}
 		});
-		fetch.setBounds(269, 411, 102, 32);
+		fetch.setBounds(450, 658, 148, 49);
 		contentPane.add(fetch);
 	}
 }

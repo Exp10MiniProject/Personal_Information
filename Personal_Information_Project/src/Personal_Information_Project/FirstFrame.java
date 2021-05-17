@@ -209,7 +209,7 @@ public class FirstFrame extends JFrame {
 				try 
 				{ 
 					Class.forName("com.mysql.jdbc.Driver");
-					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/personal_information?characterEncoding=latin1","root","your password"); 
+					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/personal_information?characterEncoding=latin1","root","Sharanya47*;"); 
 					PreparedStatement ps = conn.prepareStatement("insert into Details(name, dob, gender, ph_no, email, blood_grp, height, weight, profession, residing_area, work_place) values(?,?,?,?,?,?,?,?,?,?,?);");
 					ps.setString(1, namefeild.getText());
  					ps.setString(2, dobfield.getText());
@@ -240,7 +240,7 @@ public class FirstFrame extends JFrame {
 					System.out.println(e1); 
 				} 
 				
-				DisplayAfterEntry da = new DisplayAfterEntry();
+				DisplayDatabase da = new DisplayDatabase();
 				da.setVisible(true);
 
 			}
