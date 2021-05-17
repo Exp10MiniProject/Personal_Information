@@ -239,6 +239,9 @@ public class FirstFrame extends JFrame {
 				{ 
 					System.out.println(e1); 
 				} 
+				
+				DisplayAfterEntry da = new DisplayAfterEntry();
+				da.setVisible(true);
 
 			}
 		});

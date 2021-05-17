@@ -21,12 +21,15 @@ import java.sql.PreparedStatement;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JTable;
 
 public class RetrieveDetailsFrame extends JFrame 
 {
 
 	private JPanel contentPane;
 	private JTextField R_enterName_textField;
+	private JTable table;
+	private JTable table_1;
 
 	/**
 	 * Launch the application.
@@ -52,7 +55,7 @@ public class RetrieveDetailsFrame extends JFrame
 	{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
+		contentPane =  new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -132,18 +135,7 @@ public class RetrieveDetailsFrame extends JFrame
 						
 						String work_place = rs.getString(12);
 						System.out.println("Work Place:" + work_place);
-					}
-					
-//					int x = ps.executeUpdate(); 
-//					if(x>0) 
-//					{ 
-//						System.out.println("Retrived Details Successful"); 
-//					}
-//					else 
-//					{ 
-//						System.out.println("Retrived Details Failed"); 
-//					} 
-					
+					}	
 				}
 				
 				catch(Exception e1) 
@@ -152,6 +144,8 @@ public class RetrieveDetailsFrame extends JFrame
 				} 
 			}
 		});
+		
+		
 	}
 }
 	
